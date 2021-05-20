@@ -24,19 +24,21 @@ void main(void)
 	// 주사위
 	int dice;
 
+	int money = 5000000;
+
 	srand(time(0));
 	rand();
 
-	printf("현재위치 : %d\n\n", position);
-	getchar();
+	printf("현재위치 : %d, 가진돈 : %d\n\n", position, money);
 
 	while (1)
 	{
+		getchar();	
 		// 주사위 설정 (1부터 6까지)
 		dice = rand() % 6 + 1;
 		position += dice;
-		printf("현재위치 : %d\n\n", position);
-		getchar();
+		printf("주사위를 던져서 %d가 나왔습니다.\n", dice);
+		printf("현재위치 : %d, 가진돈 : %d\n\n", position, money);
 
 		if (position > 61)
 		{
