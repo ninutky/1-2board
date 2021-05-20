@@ -1,3 +1,14 @@
+/*
+*	보드게임 만들기 21.05.13
+*	1. 전체 칸의 갯수 61개
+*	2. 플레이어가 가지고 있어야 할 것
+*		- 위치정보(말) : 0 부터 시작
+*		- 돈 : 5,000,000 부터 시작
+*		- 아이템 인벤토리 (나중에 가능하면)
+*/
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -26,5 +37,12 @@ void main(void)
 		position += dice;
 		printf("현재위치 : %d\n\n", position);
 		getchar();
-	}
+
+		if (position > 61)
+		{
+			printf("축하합니다. 목적지에 도달하였습니다.\n");
+			break;
+		}
+	} // while 문 끝
+	printf("게임이 끝났습니다.");
 }
