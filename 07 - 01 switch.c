@@ -2,18 +2,17 @@
 
 void main(void)
 {
-	int a = 3;
+	int a = 1;
 
-	if (a == 1)
+	switch (a)
 	{
-		printf("Ä­ÃÝ ¸¶½Ë´Ù");
-	}
-	else if (a == 2)
-	{
-		printf("¾Æ¸óµå »©»©·Îµµ ¸ÀÀÖÀ½");
-	}
-	else
-	{
-		printf("±Ùµ¥ ¶±ººÀÌ ¸Ô°í ½Í¾î");
+	case 1:
+		printf("Ä­ÃÝ ¸¶½Ë´Ù\n");
+	
+	case 2: 
+		printf("¾Æ¸óµå »©»©·Îµµ ¸ÀÀÖÀ½\n");
+
+	default: 
+		printf("±Ùµ¥ ¶±ººÀÌ ¸Ô°í ½Í¾î\n");
 	}
 }
