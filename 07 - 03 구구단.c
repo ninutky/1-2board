@@ -1,9 +1,10 @@
 #include <stdio.h>
 void main (void)
 {
-	for (int i = 1; i <= 9; i++) 
+	int dan = 3;
+	for (int i = 1; i <= 9; i++)
 	{
-		printf("3 X %d = %d\n", i, 3 * i);
+		printf("%d X %d = %d\n", dan, i, dan * i);
 	}
 
 	/*
