@@ -7,6 +7,8 @@
 *		- 아이템 인벤토리 (나중에 가능하면)
 *	3. 파산의 기준
 *		- 0원이 되자마자 파산
+*	4. 완료 조건
+*		- 말이 61번째 위치에만 있어야 한다
 */
 
 
@@ -17,14 +19,16 @@
 
 void main(void)
 {
-	// 칸의 최대갯수
-	int max_length = 61;
+	// 칸의 최대갯수, 상수형 변수(공간)
+	const int max_length = 61;
 
 	// 플레이어의 위치
 	int position = 0;
 
 	// 주사위
 	int dice;
+
+	const int MAX_LENGTH = 61;
 
 	int money = 5000000;
 
@@ -40,14 +44,14 @@ void main(void)
 		dice = rand() % 6 + 1;
 		position += dice;
 		printf("주사위를 던져서 %d가 나왔습니다.\n", dice);
-		printf("현재위치 : %d, 가진돈 : %d\n\n", position, money);
+		printf("현재위치 : %d, 가진 돈 : %d\n\n", position, money);
 
 		// 7번에 있을 때는 3번으로 이동
 		if (position == 7)
 		{
 			printf("3번 위치로 이동합니다.");
 			position = 3;
-			printf("현재위치 : %d, 가진 돈: %d\n\n",position);
+			printf("현재위치 : %d, 가진 돈: %d\n\n",position, money);
 		}
 
 		if (position == 15)
@@ -57,18 +61,49 @@ void main(void)
 			printf("현재위치 : %d, 가진돈 : %d\n\n", position, money);
 		}
 
+		/// 게임이 끝나는 시나리오
 		// 파산처리
 		if (money <= 0)
 		{
 			printf("파산하였습니다ㅠㅠㅠ\n");
 			break;
 		}
+		switch (position)
+		{
+		case 7: printf("3번 위치로 이동합니다.\n");ㄹ
+		{
+			position = 3;
+			printf("현재위치 : %d, 가진 돈 : %d\n\n", position, money);
+			break;
+		}
+
+		case 20:
+			printf("위치 20에 있어서 재산의 20%를 기부합니다%\n");
+			
+			break;
+
+		case 52:
+			printf("위치 52 무인도에 갇혔습니다.\n");
+			for (int i = 1; i <= 3; i++)
+			{
+				getchar();
+				printf("%d째입니다.\n",i);
+			}
+		}
 
 		// 61을 넘기면 목적지에 도착함
-		if (position > 61) 
+		if (position > MAX_LENGTH)
+		{
+			printf("61을 넘었기 때문에 무효처리 합니다.");
+			// 무효처리를 하기 위한 코드
+			printf("현재위치 : %d, 가진돈 : %d\n\n", position, money);
+		
+		}
+
+		// 61 위치에만 있어야 게임이 끝남
+		if (position == MAX_LENGTH)
 		{
 			printf("축하합니다. 목적지에 도달하였습니다.\n");
-			break;
 		}
 	} // while 문 끝
 	printf("게임이 끝났습니다.");
