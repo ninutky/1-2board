@@ -2,26 +2,29 @@
 
 // 함수의 선언
 void cal_grade(int score);
+double cal_average(int score_a, int score_b, int score_c); // 평균이 소수점으로 나올 수 있어서 double로 잡음
 
 void main(void)
 {
 	int C_score;
 	printf("C점수를 입력하세요 : ");
 	scanf("%d", &C_score);
-	
+
 	cal_grade(C_score);
-	{
-		int java_score;
-		printf("자바점수를 입력하세요 : ");
-		scanf("%d", &java_score);
-		cal_grade(java_score);
-	}
-	{
-		int CA_score;
-		printf("컴구점수를 입력하세요 : ");
-		scanf("%d", &CA_score);
-		cal_grade(CA_score);
-	}
+
+	int java_score;
+	printf("자바점수를 입력하세요 : ");
+	scanf("%d", &java_score);
+	cal_grade(java_score);
+
+	int CA_score;
+	printf("컴구점수를 입력하세요 : ");
+	scanf("%d", &CA_score);
+	cal_grade(CA_score);
+
+	double average = cal_average(C_score, java_score, CA_score);
+	printf("세 과목의 평균은 %f 입니다. ", average);
+
 }
 
 // 입력받은 점수(score)에 대한 등급을 출력
@@ -37,4 +40,10 @@ void cal_grade(int score)
 		printf("D입니다. \n");
 	else
 		printf("E입니다. \n");
+}
+
+// 세 과목의 평균을 반환
+double cal_average(int score_a, int score_b, int score_c)
+{
+	return (double)(score_a + score_b + score_c) / (double)3;
 }
