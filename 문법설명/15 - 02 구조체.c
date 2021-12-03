@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef struct point {
+typedef struct {
 	int x;
 	int y;
 }Point;
@@ -10,7 +10,7 @@ void main(void) {
 	Point p1 = { 10,20 };
 	
 	//선언 후 나중에 초기화
-	
+	Point p2;
 	p2.x = 20;
 	p2.y = 40;
 
