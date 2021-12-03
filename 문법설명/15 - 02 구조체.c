@@ -13,4 +13,9 @@ void main(void) {
 	struct point p2;	//struct 안쓰면 에러남
 	p2.x = 20;
 	p2.y = 40;
+
+	printf("(%d, %d) \n", p1.x, p1.y);
+	printf("(%d, %d) \n", p2.x, p2.y);
+	// int변수 2개가 들어있어서 8바이트
+	printf("구조체의 크기는 %d", sizeof(p1));
 }
