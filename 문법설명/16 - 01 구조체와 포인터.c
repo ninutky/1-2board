@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct {
 	int x;
@@ -7,12 +8,10 @@ typedef struct {
 
 void main(void)
 {
-	// 지역변수 a는 stack영역에 할당된다.
-	Point a = { 3,4 };
-	printf("%d %d\n", a.x, a.y);
-
-	Point* ptr = &a;
-	printf("%d %d\n",(*ptr).x, (*ptr).y);
+	// 동적할당된 공간은 heap 영역에 할당된다.
+	Point* ptr = (Point*)malloc(sizeof(Point));
+	ptr->x = 3;
+	ptr->y = 4;
 	printf("%d %d\n", ptr->x, ptr->y);
 }
 
